@@ -1,7 +1,13 @@
-
-
+"""The analyze module uses the Flesch–Kincaid readability test to analyze text and
+   produce a readability score. This score is then converted into a
+   grade-based readability category.
+"""
 
 def count_syllables(words):
+    """This function takes a list of words and returns a total
+      count of syllables across all words in the list.
+    """
+
     count = 0
 
     for word in words:
@@ -12,6 +18,10 @@ def count_syllables(words):
 
 
 def count_syllables_in_word(word):
+    """This function takes a word in the form of a string
+       and returns the number of syllables. Note this function is
+       a heuristic and may not be 100% accurate.
+    """
     count = 0
 
     endings = ".,;!?:"
@@ -42,6 +52,11 @@ def count_syllables_in_word(word):
 
 
 def count_sentences(text):
+    """This function counts the number of sentences in a string of text
+       using period, semicolon, question mark and exclamation mark as
+       terminals.
+    """
+    
     count = 0
 
     terminals = ".;?!"
@@ -52,6 +67,10 @@ def count_sentences(text):
 
 
 def output_results(score):
+    """This function takes a Flesch-Kincaid score and prints the
+        corresponding reading level.
+    """
+
     if score >= 90:
         print("Reading level of 5th Grade")
     elif score >= 80:
@@ -69,6 +88,10 @@ def output_results(score):
 
 
 def compute_readability(text):
+    """This function takes a text string of any length and prints out a
+       grade-based readability score.
+    """
+
     total_words = 0
     total_sentences = 0
     total_syllables = 0
@@ -87,6 +110,8 @@ def compute_readability(text):
 
     output_results(score)
 
-
-compute_readability(ch1text.text)
+if __name__ == '__main__':
+    import ch1text
+    print('Chapter 1 Text:')
+    compute_readability(ch1text.text)
 
